@@ -20,4 +20,10 @@ class Book < ApplicationRecord
     update_attributes(:publish_status => false)
   end  
   
+  def self.search(search)
+    where("book_name LIKE ? or author LIKE ? or isbn LIKE ? or category LIKE ?", "%#{search}%","%#{search}%","%#{search}%","%#{search}%")
+  end
+
+
+  
 end
