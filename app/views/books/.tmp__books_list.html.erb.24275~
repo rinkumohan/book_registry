@@ -15,9 +15,6 @@
             <td>
                <%=book.isbn%>
             </td>
-			 <td>
-               <%=book.price%>
-            </td>
             <td>
                <%=book.category%>
             </td>

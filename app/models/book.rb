@@ -8,6 +8,9 @@ class Book < ApplicationRecord
   validates :price, :numericality => { greater_than_or_equal_to: 0}
   validates :isbn, format: { with: /\A\d+\z/, message: "must be a number. String and special characters are not allowed." }
 
+  BOOK_SORT = [["Name","book_name"],["Author","author"],["Isbn","isbn"],["price","price"],["Category","category"],["Publish Status","publish_status"]]
+
+  SORT_ODR = [["Ascending","ASC"],["Descending","DESC"]]
 
   def publish_book
     update_attributes(:publish_status => true)

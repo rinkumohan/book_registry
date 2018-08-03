@@ -5,8 +5,8 @@
 <%=form_tag  books_path, method: :get, id: 'book_index_form' ,:class=>"basic-form no-padding"  do %>
 	<div class="nav">
 	    <%= link_to "Add Books",new_book_path, :class => "btn rounded btn-primary"%>
-		<span class="sort_class">Sort on</span> <%= select_tag :sort_on, options_for_select(Book::BOOK_SORT),class:"input_box_style"%>
-		<span class="sort_class">Sort by </span><%= select_tag :sort_by, options_for_select(Book::SORT_ODR),class:"input_box_style"%>
+		Sort on <%= select_tag :sort_on, options_for_select(Book::BOOK_SORT),class:"input_box_style"%>
+		Sort by <%= select_tag :sort_by, options_for_select(Book::SORT_ODR),class:"input_box_style"%>
 	</div>
 <%end%>	
 

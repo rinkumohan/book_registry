@@ -4,7 +4,6 @@
   	<th>Name</th>
 	<th>Author</th>
     <th>ISBN</th>
-	<th>Price</th>
 	<th>Category</th>
 	<th>Publish/Unpublish</th>
 	<th>Edit</th>

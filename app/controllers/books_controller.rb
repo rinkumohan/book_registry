@@ -1,9 +1,12 @@
 class BooksController < ApplicationController
 
   before_action :find_book, only: [:edit,:update,:destroy,:publish_or_unpublish]
+  before_action :find_all_books, only: [:index]
  
   def index
-    @books = Book.all
+    if !params[:sort_on].blank? || !params[:sort_by].blank?
+      @books = @books.reorder("#{params[:sort_on]} #{params[:sort_by]}") 
+    end  
   end
  
   def new
@@ -58,4 +61,8 @@ class BooksController < ApplicationController
     @book = Book.find_by_id(params[:id])
   end
 
+  def find_all_books
+    @books = Book.all.order("book_name ASC")
+  end  
+  
 end
