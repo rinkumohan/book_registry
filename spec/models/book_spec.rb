@@ -3,7 +3,11 @@ require 'rails_helper'
 RSpec.describe Book, type: :model do
   
   context 'validation tests' do
-     
+    
+      if User.all.blank?
+        user = User.new(email: "admin@abc.com",password: "123456",password_confirmation: "123456").save!
+      end
+      
       it 'ensures name presence' do
         book = Book.new(author: 'user',isbn: 201803,user_id: 1,price: 1222,category: 'new_books',publish_status: false).save
         expect(book).to eq(false)
