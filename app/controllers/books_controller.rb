@@ -27,7 +27,7 @@ class BooksController < ApplicationController
  
   def update
     book = @book.update_attributes(book_params)
-    if proj
+    if book
       flash[:success] = "Successfully Updated Book"
       redirect_to books_path
     else
@@ -46,7 +46,7 @@ class BooksController < ApplicationController
   private
    
   def book_params
-    params.require(:book).permit(:name,:author,:isbn,:price,:category,:publish_status,:user_id)
+    params.require(:book).permit(:book_name,:author,:isbn,:price,:category,:publish_status,:user_id)
   end
  
   def find_book
