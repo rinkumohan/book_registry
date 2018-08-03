@@ -1,6 +1,6 @@
 class BooksController < ApplicationController
 
-  before_action :find_book, only: [:edit,:update,:destroy]
+  before_action :find_book, only: [:edit,:update,:destroy,:publish_or_unpublish]
  
   def index
     @books = Book.all
@@ -42,6 +42,11 @@ class BooksController < ApplicationController
     flash[:error] = @book.errors.full_messages.uniq.join(', ') if !book
     redirect_to books_path
   end
+  
+  def publish_or_unpublish
+    @book.publish_status ? @book.unpublish_book : @book.publish_book
+    redirect_to books_path
+  end  
  
   private
    
